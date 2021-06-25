@@ -126,5 +126,56 @@ def login_view(request, *args, **kwargs):
     return render(request, 'login.html')
 ```
 
+### DJango Templates
+
+DJango's template language let your code inside html like language that are render through the webbrowser in fact its html that take attribute create from backend Django
+here you can share variable, models etc... here we should by example how this could be use; the next function would be use as references of request for our rendering.
+```
+    def get_context_variable_mapping(request, arg, **kwargs):
+        array=[1,'343434','@text',{'1221':1233}]
+        single_value=100  
+        str='this is a string'
+        my_context ={
+            'array': array,
+            'single_value': single_value,
+            'string': str
+        }
+
+        render(request, 'index.html', my_context)
+```
+## Using context variable
+
+as you can see above I create a method that return render object expected from DJango to render an endpoint, in this function I returned the request itself, the template filename, and 
+Dictionary which contain some properties that our template file will be show bellow:
+```
+{% extends 'base.html' %}
+
+{% block content%}
+{% include 'navbar.html'%}
+<b>JOB List</b>
+
+{% if single_value > 1000%}
+  <p>Higher than 1000</p>
+{%endif%}
+
+{% if single_value < 1100%}
+    <p>Higher than 11000</p>
+{%else%}
+    <p>not Higher than 1000</p>
+{%endif%}
+
+<ul>
+{% for item in array%}
+  <li>{{item}}</li>
+{% endfor%}
+</ul>
+
+
+<p>Using filter add to add values</p>
+Single Value + <b>2323</b> it will show {{single_value|add:2323}}
+
+{% endblock %}
+```
+this contain common construction used in template engine there are 
 
 

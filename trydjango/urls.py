@@ -18,11 +18,17 @@ from django.urls import path
 
 from page.views import page_view
 from page.views import login_view
-
+from page.views import conf_view
+from page.views import jobs_view
+from page.views import signup_view
 
 urlpatterns = [
-    path('', page_view, name='page'),
-    path('home/', page_view, name='page'),
-    path('login/', login_view, name='page'),
+    path(''        , page_view     , name='page'),
+    path('home/'   , page_view     , name='page'),
+    path('login/'  , login_view    , name='page'),
+    path('jobs/'   , jobs_view     , name='page1'),
+    path('signup/' , signup_view   , name='page2'),
+    path('conf/'   , conf_view     , name='page3'),
+
     path('admin/', admin.site.urls),
 ]
