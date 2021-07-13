@@ -1,4 +1,4 @@
-"""trydjango URL Configuration
+"""core URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
@@ -16,19 +16,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from page.views import page_view
-from page.views import login_view
-from page.views import conf_view
-from page.views import jobs_view
-from page.views import signup_view
-
 urlpatterns = [
-    path(''        , page_view     , name='page'),
-    path('home/'   , page_view     , name='page'),
-    path('login/'  , login_view    , name='page'),
-    path('jobs/'   , jobs_view     , name='page1'),
-    path('signup/' , signup_view   , name='page2'),
-    path('conf/'   , conf_view     , name='page3'),
-
     path('admin/', admin.site.urls),
 ]
